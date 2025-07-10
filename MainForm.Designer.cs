@@ -85,9 +85,9 @@
             this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 3;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 56.09244F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 43.90756F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 62F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 69.28328F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 30.71672F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 49F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(1325, 649);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
@@ -99,12 +99,12 @@
             this.tabControl1.Controls.Add(this.pageLog);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl1.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tabControl1.Location = new System.Drawing.Point(4, 333);
+            this.tabControl1.Location = new System.Drawing.Point(4, 419);
             this.tabControl1.Margin = new System.Windows.Forms.Padding(4);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.Padding = new System.Drawing.Point(28, 8);
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1317, 249);
+            this.tabControl1.Size = new System.Drawing.Size(1317, 176);
             this.tabControl1.TabIndex = 0;
             // 
             // pageProses
@@ -114,7 +114,7 @@
             this.pageProses.Margin = new System.Windows.Forms.Padding(4);
             this.pageProses.Name = "pageProses";
             this.pageProses.Padding = new System.Windows.Forms.Padding(4);
-            this.pageProses.Size = new System.Drawing.Size(1309, 201);
+            this.pageProses.Size = new System.Drawing.Size(1309, 128);
             this.pageProses.TabIndex = 0;
             this.pageProses.Text = "Proses";
             this.pageProses.UseVisualStyleBackColor = true;
@@ -189,6 +189,7 @@
             this.num_JumlahData.Name = "num_JumlahData";
             this.num_JumlahData.Size = new System.Drawing.Size(254, 34);
             this.num_JumlahData.TabIndex = 2;
+            this.num_JumlahData.ValueChanged += new System.EventHandler(this.JumlahSetTarget);
             // 
             // tableLayoutPanel4
             // 
@@ -216,6 +217,7 @@
             this.checkbox_Debug.TabIndex = 0;
             this.checkbox_Debug.Text = "Debug";
             this.checkbox_Debug.UseVisualStyleBackColor = true;
+            this.checkbox_Debug.CheckedChanged += new System.EventHandler(this.Debug_Check);
             // 
             // checkBox_Image
             // 
@@ -228,6 +230,7 @@
             this.checkBox_Image.TabIndex = 1;
             this.checkBox_Image.Text = "Muat Gambar";
             this.checkBox_Image.UseVisualStyleBackColor = true;
+            this.checkBox_Image.CheckedChanged += new System.EventHandler(this.Image_Load);
             // 
             // btnStart
             // 
@@ -242,6 +245,7 @@
             this.btnStart.TabIndex = 4;
             this.btnStart.Text = "Start";
             this.btnStart.UseVisualStyleBackColor = false;
+            this.btnStart.Click += new System.EventHandler(this.StartScrape);
             // 
             // pageResult
             // 
@@ -250,7 +254,7 @@
             this.pageResult.Margin = new System.Windows.Forms.Padding(4);
             this.pageResult.Name = "pageResult";
             this.pageResult.Padding = new System.Windows.Forms.Padding(4);
-            this.pageResult.Size = new System.Drawing.Size(1309, 201);
+            this.pageResult.Size = new System.Drawing.Size(1309, 128);
             this.pageResult.TabIndex = 1;
             this.pageResult.Text = "Hasil";
             this.pageResult.UseVisualStyleBackColor = true;
@@ -258,6 +262,7 @@
             // dgvHasil
             // 
             this.dgvHasil.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvHasil.BackgroundColor = System.Drawing.Color.White;
             this.dgvHasil.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvHasil.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Nama_Result,
@@ -272,7 +277,7 @@
             this.dgvHasil.Margin = new System.Windows.Forms.Padding(4);
             this.dgvHasil.Name = "dgvHasil";
             this.dgvHasil.RowHeadersWidth = 51;
-            this.dgvHasil.Size = new System.Drawing.Size(1301, 193);
+            this.dgvHasil.Size = new System.Drawing.Size(1301, 120);
             this.dgvHasil.TabIndex = 0;
             // 
             // Nama_Result
@@ -324,7 +329,7 @@
             this.pageLog.Margin = new System.Windows.Forms.Padding(4);
             this.pageLog.Name = "pageLog";
             this.pageLog.Padding = new System.Windows.Forms.Padding(4);
-            this.pageLog.Size = new System.Drawing.Size(1309, 201);
+            this.pageLog.Size = new System.Drawing.Size(1309, 128);
             this.pageLog.TabIndex = 2;
             this.pageLog.Text = "Logs";
             this.pageLog.UseVisualStyleBackColor = true;
@@ -332,6 +337,7 @@
             // dgvLogs
             // 
             this.dgvLogs.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvLogs.BackgroundColor = System.Drawing.Color.White;
             this.dgvLogs.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvLogs.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.id_logs,
@@ -343,7 +349,7 @@
             this.dgvLogs.Margin = new System.Windows.Forms.Padding(4);
             this.dgvLogs.Name = "dgvLogs";
             this.dgvLogs.RowHeadersWidth = 51;
-            this.dgvLogs.Size = new System.Drawing.Size(1301, 193);
+            this.dgvLogs.Size = new System.Drawing.Size(1301, 120);
             this.dgvLogs.TabIndex = 0;
             // 
             // id_logs
@@ -379,12 +385,12 @@
             this.tableLayoutPanel2.Controls.Add(this.label1, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.logs_text, 1, 0);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(4, 590);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(4, 603);
             this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(4);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(1317, 55);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(1317, 42);
             this.tableLayoutPanel2.TabIndex = 1;
             // 
             // label1
@@ -397,7 +403,7 @@
             this.label1.Location = new System.Drawing.Point(0, 0);
             this.label1.Margin = new System.Windows.Forms.Padding(0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(80, 55);
+            this.label1.Size = new System.Drawing.Size(80, 42);
             this.label1.TabIndex = 0;
             this.label1.Text = "Maps";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -411,7 +417,7 @@
             this.logs_text.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
             this.logs_text.Location = new System.Drawing.Point(83, 0);
             this.logs_text.Name = "logs_text";
-            this.logs_text.Size = new System.Drawing.Size(1231, 55);
+            this.logs_text.Size = new System.Drawing.Size(1231, 42);
             this.logs_text.TabIndex = 1;
             this.logs_text.Text = "Open Application";
             this.logs_text.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -425,7 +431,7 @@
             this.webView21.Location = new System.Drawing.Point(4, 4);
             this.webView21.Margin = new System.Windows.Forms.Padding(4);
             this.webView21.Name = "webView21";
-            this.webView21.Size = new System.Drawing.Size(1317, 321);
+            this.webView21.Size = new System.Drawing.Size(1317, 407);
             this.webView21.TabIndex = 2;
             this.webView21.ZoomFactor = 1D;
             // 
@@ -440,6 +446,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MainMenu";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.MainForm_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tabControl1.ResumeLayout(false);
             this.pageProses.ResumeLayout(false);
