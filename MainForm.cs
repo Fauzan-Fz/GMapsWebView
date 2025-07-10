@@ -1,12 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿using System.Windows.Forms;
 
 namespace GMapsWebView
 {
@@ -16,5 +8,23 @@ namespace GMapsWebView
         {
             InitializeComponent();
         }
+
+        #region Variable
+
+        private int test = 0;
+
+        #endregion Variable
+
+        #region Fungsi
+
+        private int test2 = 0;
+
+        #endregion Fungsi
+
+        #region Event Form
+
+        private int test3 = 0;
+
+        #endregion Event Form
     }
 }

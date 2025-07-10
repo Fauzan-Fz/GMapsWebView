@@ -31,12 +31,8 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.pageProses = new System.Windows.Forms.TabPage();
-            this.pageResult = new System.Windows.Forms.TabPage();
-            this.pageLog = new System.Windows.Forms.TabPage();
-            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.textLogs = new System.Windows.Forms.Label();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
+            this.btnStop = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.num_JumlahData = new System.Windows.Forms.NumericUpDown();
@@ -44,17 +40,26 @@
             this.checkbox_Debug = new System.Windows.Forms.CheckBox();
             this.checkBox_Image = new System.Windows.Forms.CheckBox();
             this.btnStart = new System.Windows.Forms.Button();
-            this.btnStop = new System.Windows.Forms.Button();
+            this.pageResult = new System.Windows.Forms.TabPage();
             this.dgvHasil = new System.Windows.Forms.DataGridView();
+            this.pageLog = new System.Windows.Forms.TabPage();
+            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.logs_text = new System.Windows.Forms.Label();
+            this.webView21 = new Microsoft.Web.WebView2.WinForms.WebView2();
+            this.dgvLogs = new System.Windows.Forms.DataGridView();
             this.tableLayoutPanel1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.pageProses.SuspendLayout();
-            this.pageResult.SuspendLayout();
-            this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.num_JumlahData)).BeginInit();
             this.tableLayoutPanel4.SuspendLayout();
+            this.pageResult.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvHasil)).BeginInit();
+            this.pageLog.SuspendLayout();
+            this.tableLayoutPanel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.webView21)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvLogs)).BeginInit();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -63,6 +68,7 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.Controls.Add(this.tabControl1, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel2, 0, 2);
+            this.tableLayoutPanel1.Controls.Add(this.webView21, 0, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(0);
@@ -94,76 +100,11 @@
             this.pageProses.Controls.Add(this.tableLayoutPanel3);
             this.pageProses.Location = new System.Drawing.Point(4, 4);
             this.pageProses.Name = "pageProses";
-            this.pageProses.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.pageProses.Padding = new System.Windows.Forms.Padding(3);
             this.pageProses.Size = new System.Drawing.Size(980, 161);
             this.pageProses.TabIndex = 0;
             this.pageProses.Text = "Proses";
             this.pageProses.UseVisualStyleBackColor = true;
-            // 
-            // pageResult
-            // 
-            this.pageResult.Controls.Add(this.dgvHasil);
-            this.pageResult.Location = new System.Drawing.Point(4, 4);
-            this.pageResult.Name = "pageResult";
-            this.pageResult.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
-            this.pageResult.Size = new System.Drawing.Size(980, 161);
-            this.pageResult.TabIndex = 1;
-            this.pageResult.Text = "Hasil";
-            this.pageResult.UseVisualStyleBackColor = true;
-            // 
-            // pageLog
-            // 
-            this.pageLog.Location = new System.Drawing.Point(4, 4);
-            this.pageLog.Name = "pageLog";
-            this.pageLog.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
-            this.pageLog.Size = new System.Drawing.Size(980, 161);
-            this.pageLog.TabIndex = 2;
-            this.pageLog.Text = "Logs";
-            this.pageLog.UseVisualStyleBackColor = true;
-            // 
-            // tableLayoutPanel2
-            // 
-            this.tableLayoutPanel2.ColumnCount = 2;
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 60F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.Controls.Add(this.label1, 0, 0);
-            this.tableLayoutPanel2.Controls.Add(this.textLogs, 1, 0);
-            this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 479);
-            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
-            this.tableLayoutPanel2.RowCount = 1;
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(988, 45);
-            this.tableLayoutPanel2.TabIndex = 1;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.SystemColors.MenuHighlight;
-            this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(0, 0);
-            this.label1.Margin = new System.Windows.Forms.Padding(0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(60, 45);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Maps";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // textLogs
-            // 
-            this.textLogs.AutoSize = true;
-            this.textLogs.BackColor = System.Drawing.Color.Silver;
-            this.textLogs.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textLogs.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textLogs.Location = new System.Drawing.Point(62, 0);
-            this.textLogs.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.textLogs.Name = "textLogs";
-            this.textLogs.Size = new System.Drawing.Size(924, 45);
-            this.textLogs.TabIndex = 1;
-            this.textLogs.Text = "label2";
-            this.textLogs.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // tableLayoutPanel3
             // 
@@ -184,6 +125,19 @@
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel3.Size = new System.Drawing.Size(540, 115);
             this.tableLayoutPanel3.TabIndex = 2;
+            // 
+            // btnStop
+            // 
+            this.btnStop.BackColor = System.Drawing.Color.Red;
+            this.btnStop.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnStop.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.btnStop.ForeColor = System.Drawing.Color.White;
+            this.btnStop.Location = new System.Drawing.Point(379, 60);
+            this.btnStop.Name = "btnStop";
+            this.btnStop.Size = new System.Drawing.Size(158, 52);
+            this.btnStop.TabIndex = 5;
+            this.btnStop.Text = "Stop";
+            this.btnStop.UseVisualStyleBackColor = false;
             // 
             // label3
             // 
@@ -271,18 +225,16 @@
             this.btnStart.Text = "Start";
             this.btnStart.UseVisualStyleBackColor = false;
             // 
-            // btnStop
+            // pageResult
             // 
-            this.btnStop.BackColor = System.Drawing.Color.Red;
-            this.btnStop.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnStop.Font = new System.Drawing.Font("Segoe UI", 11F);
-            this.btnStop.ForeColor = System.Drawing.Color.White;
-            this.btnStop.Location = new System.Drawing.Point(379, 60);
-            this.btnStop.Name = "btnStop";
-            this.btnStop.Size = new System.Drawing.Size(158, 52);
-            this.btnStop.TabIndex = 5;
-            this.btnStop.Text = "Stop";
-            this.btnStop.UseVisualStyleBackColor = false;
+            this.pageResult.Controls.Add(this.dgvHasil);
+            this.pageResult.Location = new System.Drawing.Point(4, 4);
+            this.pageResult.Name = "pageResult";
+            this.pageResult.Padding = new System.Windows.Forms.Padding(3);
+            this.pageResult.Size = new System.Drawing.Size(980, 161);
+            this.pageResult.TabIndex = 1;
+            this.pageResult.Text = "Hasil";
+            this.pageResult.UseVisualStyleBackColor = true;
             // 
             // dgvHasil
             // 
@@ -293,27 +245,106 @@
             this.dgvHasil.Size = new System.Drawing.Size(974, 155);
             this.dgvHasil.TabIndex = 0;
             // 
+            // pageLog
+            // 
+            this.pageLog.Controls.Add(this.dgvLogs);
+            this.pageLog.Location = new System.Drawing.Point(4, 4);
+            this.pageLog.Name = "pageLog";
+            this.pageLog.Padding = new System.Windows.Forms.Padding(3);
+            this.pageLog.Size = new System.Drawing.Size(980, 161);
+            this.pageLog.TabIndex = 2;
+            this.pageLog.Text = "Logs";
+            this.pageLog.UseVisualStyleBackColor = true;
+            // 
+            // tableLayoutPanel2
+            // 
+            this.tableLayoutPanel2.ColumnCount = 2;
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 60F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel2.Controls.Add(this.label1, 0, 0);
+            this.tableLayoutPanel2.Controls.Add(this.logs_text, 1, 0);
+            this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 479);
+            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
+            this.tableLayoutPanel2.RowCount = 1;
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(988, 45);
+            this.tableLayoutPanel2.TabIndex = 1;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(0, 0);
+            this.label1.Margin = new System.Windows.Forms.Padding(0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(60, 45);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Maps";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // logs_text
+            // 
+            this.logs_text.AutoSize = true;
+            this.logs_text.BackColor = System.Drawing.Color.Silver;
+            this.logs_text.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.logs_text.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.logs_text.Location = new System.Drawing.Point(62, 0);
+            this.logs_text.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.logs_text.Name = "logs_text";
+            this.logs_text.Size = new System.Drawing.Size(924, 45);
+            this.logs_text.TabIndex = 1;
+            this.logs_text.Text = "Open Application";
+            this.logs_text.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // webView21
+            // 
+            this.webView21.AllowExternalDrop = true;
+            this.webView21.CreationProperties = null;
+            this.webView21.DefaultBackgroundColor = System.Drawing.Color.White;
+            this.webView21.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.webView21.Location = new System.Drawing.Point(3, 3);
+            this.webView21.Name = "webView21";
+            this.webView21.Size = new System.Drawing.Size(988, 261);
+            this.webView21.TabIndex = 2;
+            this.webView21.ZoomFactor = 1D;
+            // 
+            // dgvLogs
+            // 
+            this.dgvLogs.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvLogs.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvLogs.Location = new System.Drawing.Point(3, 3);
+            this.dgvLogs.Name = "dgvLogs";
+            this.dgvLogs.Size = new System.Drawing.Size(974, 155);
+            this.dgvLogs.TabIndex = 0;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(994, 527);
             this.Controls.Add(this.tableLayoutPanel1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "MainForm";
             this.Text = "Form1";
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tabControl1.ResumeLayout(false);
             this.pageProses.ResumeLayout(false);
-            this.pageResult.ResumeLayout(false);
-            this.tableLayoutPanel2.ResumeLayout(false);
-            this.tableLayoutPanel2.PerformLayout();
             this.tableLayoutPanel3.ResumeLayout(false);
             this.tableLayoutPanel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.num_JumlahData)).EndInit();
             this.tableLayoutPanel4.ResumeLayout(false);
             this.tableLayoutPanel4.PerformLayout();
+            this.pageResult.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvHasil)).EndInit();
+            this.pageLog.ResumeLayout(false);
+            this.tableLayoutPanel2.ResumeLayout(false);
+            this.tableLayoutPanel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.webView21)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvLogs)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -327,7 +358,7 @@
         private System.Windows.Forms.TabPage pageLog;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label textLogs;
+        private System.Windows.Forms.Label logs_text;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
@@ -338,6 +369,8 @@
         private System.Windows.Forms.Button btnStop;
         private System.Windows.Forms.Button btnStart;
         private System.Windows.Forms.DataGridView dgvHasil;
+        private System.Windows.Forms.DataGridView dgvLogs;
+        private Microsoft.Web.WebView2.WinForms.WebView2 webView21;
     }
 }
 
