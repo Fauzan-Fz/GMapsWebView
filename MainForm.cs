@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -80,6 +81,7 @@ namespace GMapsWebView
         private void MainForm_Load(object sender, EventArgs e)
         {
             targetSet = (int)num_JumlahData.Value;
+            btn_Export_Excel.Visible = false;
 
             startBrowser();
             AddLogs("Info", "Siap untuk memulai");
@@ -132,7 +134,41 @@ namespace GMapsWebView
 
         private void Export_Excel_Click(object sender, EventArgs e)
         {
-            // Implementasi logika untuk ekspor data ke Excel
+            using (SaveFileDialog sfd = new SaveFileDialog() { Filter = "Excel Workbook | *.xlsx" })
+            {
+                if (sfd.ShowDialog() == DialogResult.OK)
+                {
+                    try
+                    {
+                        using (var workbook = new ClosedXML.Excel.XLWorkbook())
+                        {
+                            var worksheet = workbook.Worksheets.Add("Hasil Scrape");
+
+                            // Header
+                            for (int i = 0; i < dgvHasil.Columns.Count; i++)
+                            {
+                                worksheet.Cell(1, i + 1).Value = dgvHasil.Columns[i].HeaderText;
+                            }
+
+                            // Data
+                            for (int i = 0; i < dgvHasil.Rows.Count; i++)
+                            {
+                                for (int j = 0; j < dgvHasil.Columns.Count; j++)
+                                {
+                                    worksheet.Cell(i + 2, j + 1).Value = dgvHasil.Rows[i].Cells[j].Value?.ToString();
+                                }
+                            }
+
+                            workbook.SaveAs(sfd.FileName);
+                        }
+                        MessageBox.Show("Export ke Excel berhasil!", "Sukses", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Gagal export ke Excel: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
         }
 
         #endregion Event Form
@@ -147,6 +183,7 @@ namespace GMapsWebView
                 Step = 1;
                 dataList = new List<Data>();
                 dataDetail = new List<Data>();
+                btn_Export_Excel.Visible = false;
 
                 Step = 2;
                 if (targetSet == 0)
@@ -177,6 +214,7 @@ namespace GMapsWebView
                 MessageBox.Show($"Berhasil Scrape : {website}", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 Step = 9; // Export ke Excel
+                btn_Export_Excel.Visible = true;
             }
             catch (Exception ex)
             {
