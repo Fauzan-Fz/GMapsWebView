@@ -31,6 +31,7 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.pageProses = new System.Windows.Forms.TabPage();
+            this.btn_Export_Excel = new System.Windows.Forms.Button();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.btnStop = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
@@ -59,7 +60,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.logs_text = new System.Windows.Forms.Label();
             this.webView21 = new Microsoft.Web.WebView2.WinForms.WebView2();
-            this.btn_Export_Excel = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.pageProses.SuspendLayout();
@@ -121,6 +121,18 @@
             this.pageProses.Text = "Proses";
             this.pageProses.UseVisualStyleBackColor = true;
             // 
+            // btn_Export_Excel
+            // 
+            this.btn_Export_Excel.BackColor = System.Drawing.Color.Green;
+            this.btn_Export_Excel.ForeColor = System.Drawing.Color.White;
+            this.btn_Export_Excel.Location = new System.Drawing.Point(745, 39);
+            this.btn_Export_Excel.Name = "btn_Export_Excel";
+            this.btn_Export_Excel.Size = new System.Drawing.Size(225, 58);
+            this.btn_Export_Excel.TabIndex = 3;
+            this.btn_Export_Excel.Text = "Export ke excel";
+            this.btn_Export_Excel.UseVisualStyleBackColor = false;
+            this.btn_Export_Excel.Click += new System.EventHandler(this.Export_Excel_Click);
+            // 
             // tableLayoutPanel3
             // 
             this.tableLayoutPanel3.ColumnCount = 3;
@@ -155,6 +167,7 @@
             this.btnStop.TabIndex = 5;
             this.btnStop.Text = "Stop";
             this.btnStop.UseVisualStyleBackColor = false;
+            this.btnStop.Click += new System.EventHandler(this.StopScrape);
             // 
             // label3
             // 
@@ -436,18 +449,6 @@
             this.webView21.Size = new System.Drawing.Size(1317, 407);
             this.webView21.TabIndex = 2;
             this.webView21.ZoomFactor = 1D;
-            // 
-            // btn_Export_Excel
-            // 
-            this.btn_Export_Excel.BackColor = System.Drawing.Color.Green;
-            this.btn_Export_Excel.ForeColor = System.Drawing.Color.White;
-            this.btn_Export_Excel.Location = new System.Drawing.Point(745, 39);
-            this.btn_Export_Excel.Name = "btn_Export_Excel";
-            this.btn_Export_Excel.Size = new System.Drawing.Size(225, 58);
-            this.btn_Export_Excel.TabIndex = 3;
-            this.btn_Export_Excel.Text = "Export ke excel";
-            this.btn_Export_Excel.UseVisualStyleBackColor = false;
-            this.btn_Export_Excel.Click += new System.EventHandler(this.Export_Excel_Click);
             // 
             // MainForm
             // 

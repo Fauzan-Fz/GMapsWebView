@@ -171,6 +171,18 @@ namespace GMapsWebView
             }
         }
 
+        private void StopScrape(object sender, EventArgs e)
+        {
+            if (isStopped == false)
+            {
+                isStopped = true;
+            }
+            else
+            {
+                isStopped = false;
+            }
+        }
+
         #endregion Event Form
 
         #region Logic Scrape
