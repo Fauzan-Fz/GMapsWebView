@@ -59,6 +59,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.logs_text = new System.Windows.Forms.Label();
             this.webView21 = new Microsoft.Web.WebView2.WinForms.WebView2();
+            this.Export_Excel = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.pageProses.SuspendLayout();
@@ -109,6 +110,7 @@
             // 
             // pageProses
             // 
+            this.pageProses.Controls.Add(this.Export_Excel);
             this.pageProses.Controls.Add(this.tableLayoutPanel3);
             this.pageProses.Location = new System.Drawing.Point(4, 4);
             this.pageProses.Margin = new System.Windows.Forms.Padding(4);
@@ -435,6 +437,18 @@
             this.webView21.TabIndex = 2;
             this.webView21.ZoomFactor = 1D;
             // 
+            // Export_Excel
+            // 
+            this.Export_Excel.BackColor = System.Drawing.Color.Green;
+            this.Export_Excel.ForeColor = System.Drawing.Color.White;
+            this.Export_Excel.Location = new System.Drawing.Point(745, 39);
+            this.Export_Excel.Name = "Export_Excel";
+            this.Export_Excel.Size = new System.Drawing.Size(225, 58);
+            this.Export_Excel.TabIndex = 3;
+            this.Export_Excel.Text = "Export ke excel";
+            this.Export_Excel.UseVisualStyleBackColor = false;
+            this.Export_Excel.Click += new System.EventHandler(this.Export_Excel_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -499,6 +513,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn TimeStamp_logs;
         private System.Windows.Forms.DataGridViewTextBoxColumn Type_Result;
         private System.Windows.Forms.DataGridViewTextBoxColumn Data_logs;
+        private System.Windows.Forms.Button Export_Excel;
     }
 }
 

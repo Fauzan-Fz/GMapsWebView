@@ -130,6 +130,11 @@ namespace GMapsWebView
             }
         }
 
+        private void Export_Excel_Click(object sender, EventArgs e)
+        {
+            // Implementasi logika untuk ekspor data ke Excel
+        }
+
         #endregion Event Form
 
         #region Logic Scrape
@@ -170,6 +175,8 @@ namespace GMapsWebView
                 Step = 8;
                 AddLogs("Start Scrape", $"Berhasil Scrape : {website}");
                 MessageBox.Show($"Berhasil Scrape : {website}", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                Step = 9; // Export ke Excel
             }
             catch (Exception ex)
             {
