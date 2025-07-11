@@ -207,7 +207,7 @@ namespace GMapsWebView
                 Step = 3;
                 await GetListMaps();
 
-                Step = 4; // Kondisi List Kosong
+                Step = 4;
                 if (dataList.Count() == 0)
                 {
                     MessageBox.Show($"List Kosong / Tidak Ditemukan", "Stop Scrape", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -215,7 +215,7 @@ namespace GMapsWebView
                     return;
                 }
 
-                Step = 7; // Mulai Scrape
+                Step = 7;
                 foreach (var item in dataList)
                 {
                     await GetDetail(item);
@@ -225,7 +225,7 @@ namespace GMapsWebView
                 AddLogs("Start Scrape", $"Berhasil Scrape : {website}");
                 MessageBox.Show($"Berhasil Scrape : {website}", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                Step = 9; // Export ke Excel
+                Step = 9;
                 btn_Export_Excel.Visible = true;
             }
             catch (Exception ex)
@@ -239,10 +239,10 @@ namespace GMapsWebView
             int Step = 0;
             try
             {
-                Step = 1; // Menunggu halaman siap untuk memastikan elemen sudah termuat
+                Step = 1;
                 await Task.Delay(3500);
 
-                Step = 2; // Mencari elemen utama (feed) yang berisi daftar data
+                Step = 2;
                 var container = await Page.WaitForXPathAsync("//div[contains(@role, 'feed')]", new WaitForSelectorOptions { Visible = true });
                 if (container == null)
                 {
@@ -250,29 +250,28 @@ namespace GMapsWebView
                     return;
                 }
 
-                Step = 3; // Inisialisasi index untuk iterasi item dan mulai proses pengambilan data
+                Step = 3;
                 int index = 0;
                 while (dataList.Count < targetSet)
                 {
-                    Step = 4; // Membuat objek Data untuk menyimpan hasil scraping
+                    Step = 4;
                     var DT = new Data();
 
-                    Step = 5; // Mengambil semua item yang sudah termuat di dalam feed
+                    Step = 5;
                     var itemsList = await container.XPathAsync("./div/div");
                     if (index >= itemsList.Length)
                     {
-                        // Jika item belum cukup, scroll ke bawah untuk memuat data tambahan
                         await container.EvaluateFunctionAsync(@"feed => {feed.scrollTop = feed.scrollHeight;}", container);
                         await Task.Delay(2000);
                         continue;
                     }
 
-                    Step = 6; // Mengambil item berikutnya dan scroll ke item tersebut
+                    Step = 6;
                     var item = itemsList[index++];
                     await item.EvaluateFunctionAsync("e => e.scrollIntoView({ block: 'end' })");
                     await Task.Delay(1500);
 
-                    Step = 7; // Mencari elemen <a> di dalam item untuk mengambil URL dan nama
+                    Step = 7;
                     var name = await item.XPathAsync("./a");
                     if (name == null)
                     {
@@ -280,11 +279,11 @@ namespace GMapsWebView
                     }
                     if (name.Length > 0)
                     {
-                        Step = 8; // Mengambil URL dan nama dari elemen <a>
+                        Step = 8;
                         DT.Url = await name[0].EvaluateFunctionAsync<string>("a => a.href", name[0]);
                         DT.Name = await name[0].EvaluateFunctionAsync<string>("a => a.ariaLabel", name[0]);
 
-                        Step = 9; // Menyimpan data ke dalam dataList jika URL valid
+                        Step = 9;
                         if (!string.IsNullOrEmpty(DT.Url))
                         {
                             dataList.Add(DT);
@@ -377,10 +376,10 @@ namespace GMapsWebView
                     return;
                 }
 
-                Step = 10; // Check Kondisi ExtId
+                Step = 10;
                 if (!string.IsNullOrEmpty(DT.Name))
                 {
-                    Step = 11; // Kondisi Filter Data Sama
+                    Step = 11;
                     var dataSama = dataDetail.Where(c => c.Name == DT.Name).Count();
 
                     if (dataSama <= 0)
