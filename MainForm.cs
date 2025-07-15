@@ -374,7 +374,11 @@ namespace GMapsWebView
                 var phone = await regionInformation.XPathAsync(".//button[contains(@data-item-id, 'phone')]");
                 if (phone.Length > 0)
                 {
-                    DT.Phone = await phone[0].EvaluateFunctionAsync<string>("e => e.textContent", phone[0]);
+                    DT.Phone = await phone[0].EvaluateFunctionAsync<string>("e => e.innerText", phone[0]);
+                    if (!string.IsNullOrEmpty(DT.Phone))
+                    {
+                        DT.Phone = DT.Phone.Replace("(", "").Replace(") ", "-").GetAfter("\n");
+                    }
                 }
 
                 if (isStopped)
