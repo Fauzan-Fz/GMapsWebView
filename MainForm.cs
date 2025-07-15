@@ -333,7 +333,14 @@ namespace GMapsWebView
                     DT.Reviews = await review[0].EvaluateFunctionAsync<string>("e => e.textContent", review[0]);
                 }
 
-                Step = 4;
+                Step = 5;
+                var rating = await detailLocation.XPathAsync(".//div[contains(@class, 'fontDisplayLarge')]");
+                if (rating.Length > 0)
+                {
+                    DT.Rating = await rating[0].EvaluateFunctionAsync<string>("e => e.textContent", rating[0]);
+                }
+
+                Step = 6;
                 var name = await detailLocation.XPathAsync(".//h1");
                 if (name.Length > 0)
                 {
@@ -341,7 +348,7 @@ namespace GMapsWebView
                     //string extId = await name[0].EvaluateFunctionAsync<string>("e => e.textContent", name[0]);
                 }
 
-                Step = 5;
+                Step = 7;
                 var regionInformation = await Page.WaitForXPathAsync("//div[contains(@role, 'region')][2]", new WaitForSelectorOptions { Visible = true });
                 if (regionInformation == null)
                 {
@@ -349,21 +356,21 @@ namespace GMapsWebView
                     return;
                 }
 
-                Step = 6;
+                Step = 8;
                 var address = await regionInformation.XPathAsync(".//button[contains(@data-item-id, 'address')]");
                 if (address.Length > 0)
                 {
                     DT.Address = await address[0].EvaluateFunctionAsync<string>("e => e.ariaLabel", address[0]);
                 }
 
-                Step = 7;
+                Step = 9;
                 var website = await regionInformation.XPathAsync(".//a[contains(@data-item-id, 'authority')]");
                 if (website.Length > 0)
                 {
                     DT.Website = await website[0].EvaluateFunctionAsync<string>("e => e.href", website[0]);
                 }
 
-                Step = 8;
+                Step = 10;
                 var phone = await regionInformation.XPathAsync(".//button[contains(@data-item-id, 'phone')]");
                 if (phone.Length > 0)
                 {
@@ -376,15 +383,15 @@ namespace GMapsWebView
                     return;
                 }
 
-                Step = 10;
+                Step = 11;
                 if (!string.IsNullOrEmpty(DT.Name))
                 {
-                    Step = 11;
+                    Step = 12;
                     var dataSama = dataDetail.Where(c => c.Name == DT.Name).Count();
 
                     if (dataSama <= 0)
                     {
-                        Step = 12;
+                        Step = 13;
                         AddResult(DT);
 
                         if (isDebug)
