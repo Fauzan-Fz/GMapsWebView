@@ -360,7 +360,11 @@ namespace GMapsWebView
                 var address = await regionInformation.XPathAsync(".//button[contains(@data-item-id, 'address')]");
                 if (address.Length > 0)
                 {
-                    DT.Address = await address[0].EvaluateFunctionAsync<string>("e => e.ariaLabel", address[0]);
+                    DT.Address = await address[0].EvaluateFunctionAsync<string>("e => e.innerText", address[0]);
+                    if (!string.IsNullOrEmpty(DT.Address))
+                    {
+                        DT.Address = DT.Address.GetAfter("\n");
+                    }
                 }
 
                 Step = 9;
@@ -377,7 +381,7 @@ namespace GMapsWebView
                     DT.Phone = await phone[0].EvaluateFunctionAsync<string>("e => e.innerText", phone[0]);
                     if (!string.IsNullOrEmpty(DT.Phone))
                     {
-                        DT.Phone = DT.Phone.Replace("(", "").Replace(") ", "-").GetAfter("\n");
+                        DT.Phone = DT.Phone.Replace("(", "").Replace(") ", "").Replace("-", "").GetAfter("\n");
                     }
                 }
 
